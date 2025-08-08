@@ -134,8 +134,6 @@ footer {
     }
 }
 
-/* --- NEW: spacing and sticky nav --- */
-
 /* Add vertical spacing between major sections */
 .section-spaced {
     margin-top: 8rem;
@@ -179,4 +177,13 @@ footer {
 #top-nav .nav-btn.active {
     background-color: #4da3ff;
     color: #fff;
+}
+
+/* Itch.io button style */
+.itch-button {
+    width: 96px;
+    height: 96px;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
 }
