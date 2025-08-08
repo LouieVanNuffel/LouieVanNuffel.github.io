@@ -74,36 +74,6 @@ footer {
     font-size: 1.1rem;
 }
 
-/* top nav bar */
-#top-nav {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin: 1rem 0 2rem 0;
-}
-
-#top-nav .nav-btn {
-    background-color: #2a2a2a;
-    border: none;
-    padding: 0.6rem 1.2rem;
-    font-size: 1rem;
-    color: #eee;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: background-color 0.3s ease;
-}
-
-#top-nav .nav-btn:hover {
-    background-color: #4da3ff;
-    color: #fff;
-}
-
-#top-nav .nav-btn.active {
-    background-color: #4da3ff;
-    color: #fff;
-}
-
-
 /* Modal overlay */
 #modal {
     position: fixed;
@@ -164,17 +134,49 @@ footer {
     }
 }
 
-/* Itch.io button style */
-.itch-button {
-    width: 96px;
-    height: 96px;
-    display: inline-block;
-    vertical-align: middle;
+/* --- NEW: spacing and sticky nav --- */
+
+/* Add vertical spacing between major sections */
+.section-spaced {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+/* Make nav sticky to top */
+#top-nav {
+    position: sticky;
+    top: 0;
+    background-color: #1e1e1e; /* match header background */
+    z-index: 100;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* Nav container flex styling */
+#top-nav.container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+/* Nav buttons */
+#top-nav .nav-btn {
+    background-color: #2a2a2a;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    color: #eee;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
 }
 
-.itch-button:hover {
-    transform: scale(1.1);
+#top-nav .nav-btn:hover {
+    background-color: #4da3ff;
+    color: #fff;
 }
 
+#top-nav .nav-btn.active {
+    background-color: #4da3ff;
+    color: #fff;
+}

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Louie Van Nuffel Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <header>
@@ -13,44 +13,48 @@
         </div>
     </header>
 
+    <!-- Sticky Top navigation bar -->
     <nav id="top-nav" class="container">
         <button class="nav-btn active" data-target="about">About</button>
         <button class="nav-btn" data-target="projects">Projects</button>
         <button class="nav-btn" data-target="contact">Contact</button>
     </nav>
 
-
     <main class="container">
-        <section id="intro">
-            <p>I'm a <strong>Student Game Developer</strong> at Howest DAE. This page highlights the projects I've worked on.</p>
+        <!-- About section: intro + about text -->
+        <section id="about" class="section-spaced">
+            <div id="intro" style="margin-bottom:1rem;">
+                <p>I'm a <strong>Student Game Developer</strong> at Howest DAE. This page highlights the projects I've worked on.</p>
+            </div>
+            <div>
+                <p>Languages: C++, C#, Python, ...</p>
+                <p>Tools: Unity, Unreal Engine, Godot, Blender, Visual Studio</p>
+            </div>
         </section>
 
-        <section id="about">
-            <p>Languages: C++, C#, Python, ...</p>
-            <p>Tools: Unity, Unreal Engine, Godot, Blender, Visual Studio</p>
-        </section>
-
-        <section id="projects">
+        <!-- Projects section -->
+        <section id="projects" class="section-spaced">
             <h2>Projects</h2>
             <div class="project-grid">
                 <div class="project-card" data-project="projects/beetlefieldblast.md">
-                    <img src="assets/images/beetlefieldblast/logo.png" alt="Beetlefield Blast">
+                    <img src="assets/images/beetlefieldblast/logo.png" alt="Beetlefield Blast" />
                     <h3>Beetlefield Blast</h3>
                 </div>
                 <div class="project-card" data-project="projects/project2.md">
-                    <img src="assets/images/project2.png" alt="Project Two">
+                    <img src="assets/images/project2.png" alt="Project Two" />
                     <h3>Project Two</h3>
                 </div>
                 <div class="project-card" data-project="projects/project3.md">
-                    <img src="assets/images/project3.png" alt="Project Three">
+                    <img src="assets/images/project3.png" alt="Project Three" />
                     <h3>Project Three</h3>
                 </div>
             </div>
         </section>
 
-        <section class="contact">
+        <!-- Contact section -->
+        <section id="contact" class="contact section-spaced">
             <h2>Contact</h2>
-            <p>Email: <a href="mailto:you@example.com">louievannuffel2005@gmail.com</a></p>
+            <p>Email: <a href="mailto:louievannuffel2005@gmail.com">louievannuffel2005@gmail.com</a></p>
         </section>
     </main>
 
