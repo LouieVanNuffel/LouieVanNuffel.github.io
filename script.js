@@ -18,6 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 projectsSection.classList.add('hidden');
                 projectView.classList.remove('hidden');
+
+                // Trigger fade-in animation
+                projectContent.classList.remove('fade-in');
+                void projectContent.offsetWidth; // reset animation
+                projectContent.classList.add('fade-in');
             } catch (err) {
                 projectContent.innerHTML = `<p>Error loading project.</p>`;
             }
@@ -27,5 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
     backBtn.addEventListener('click', () => {
         projectView.classList.add('hidden');
         projectsSection.classList.remove('hidden');
+
+        // Animate project list when returning
+        projectsSection.classList.remove('fade-in');
+        void projectsSection.offsetWidth; // reset animation
+        projectsSection.classList.add('fade-in');
     });
 });
