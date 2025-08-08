@@ -4,29 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; text-align: center; background: #f4f4f4; }
-        header { background: #333; color: #fff; padding: 1em 0; }
-        h1 { margin: 0; }
-        section { padding: 2em; }
-        a { color: #333; text-decoration: none; font-weight: bold; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Louie Van Nuffel</h1>
-        <p>Portfolio</p>
+        <div class="container">
+            <h1>Your Name</h1>
+            <p>Minimalist Portfolio</p>
+        </div>
     </header>
-    <section>
-        <h2>About Me</h2>
-        <p>Description</p>
-        <h2>Projects</h2>
-        <ul>
-            <li><a href="#">Project One</a></li>
-            <li><a href="#">Project Two</a></li>
-        </ul>
-        <h2>Contact</h2>
-        <p>Email: you@example.com</p>
-    </section>
+
+    <main class="container">
+        <section class="intro">
+            <p>Hello! I'm a <strong>[Your Role]</strong> who loves creating clean, functional, and elegant solutions.</p>
+        </section>
+
+        <section class="projects">
+            <h2>Projects</h2>
+            <ul>
+                <li><a href="projects/project1.md">Project One</a></li>
+                <li><a href="projects/project2.md">Project Two</a></li>
+                <li><a href="projects/project3.md">Project Three</a></li>
+            </ul>
+        </section>
+
+        <section class="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Your Name</p>
+    </footer>
 </body>
 </html>
