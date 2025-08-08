@@ -18,19 +18,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 modal.classList.remove('hidden');
 
-                // Reset animation for zoom
+                // Reset animation
                 modalBox.classList.remove('fade-zoom');
-                void modalBox.offsetWidth; // trigger reflow
+                void modalBox.offsetWidth; // reflow trick
                 modalBox.classList.add('fade-zoom');
             } catch (err) {
                 modalContent.innerHTML = `<p>Error loading project.</p>`;
+                modal.classList.remove('hidden');
             }
         });
     });
 
-    // Close modal
-    closeModal.addEventListener('click', () => modal.classList.add('hidden'));
+    // Close modal with ✕
+    closeModal.addEventListener('click', () => {
+        modal.classList.add('hidden');
+    });
+
+    // Close modal by clicking outside content
     modal.addEventListener('click', (e) => {
-        if (e.target === modal) modal.classList.add('hidden'); // click outside
+        if (e.target === modal) modal.classList.add('hidden');
     });
 });

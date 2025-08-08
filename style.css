@@ -1,3 +1,8 @@
+/* Hidden utility */
+.hidden {
+    display: none !important;
+}
+
 /* Dark mode base */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -76,14 +81,12 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(18, 18, 18, 0.9);
+    background: rgba(18, 18, 18, 0.85);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 100;
-}
-.hidden {
-    display: none;
+    backdrop-filter: blur(6px); /* Background blur */
 }
 .modal-content {
     background: #1e1e1e;
@@ -93,6 +96,7 @@ footer {
     overflow-y: auto;
     border-radius: 10px;
     position: relative;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 #close-modal {
     position: absolute;
@@ -103,29 +107,22 @@ footer {
     font-size: 1.4rem;
     color: #fff;
     cursor: pointer;
+    z-index: 10;
+}
+#close-modal:hover {
+    color: #ff5555;
 }
 #project-content img {
     max-width: 100%;
     border-radius: 6px;
 }
 
-/* Transition and pop up effects */
-.fade-in {
-    animation: fadeIn 0.4s ease-in-out forwards;
-    opacity: 0;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
+/* Fade + zoom animation for modal box */
 .fade-zoom {
     animation: fadeZoom 0.35s ease-out forwards;
     opacity: 0;
     transform: scale(0.95);
 }
-
 @keyframes fadeZoom {
     from {
         opacity: 0;
@@ -136,4 +133,3 @@ footer {
         transform: scale(1);
     }
 }
-
