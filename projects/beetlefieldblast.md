@@ -1,43 +1,30 @@
 # Beetlefield Blast
 
-
-Explosive fruit.  Armored bugs. One ticking time bomb
-
+*Explosive fruit.  Armored bugs. One ticking time bomb*
 
 In this frantic arena brawler, you play as fantastical, weapon-wielding beetles locked in a high-stakes battle over a ticking explosive fruit bomb. Your goal? Smack that bomb toward the enemy’s side before it blows—and pray it doesn’t blow up on yours.
 
+[![itch.io](../assets/images/icons/itch.svg)](https://nuffuru.itch.io/beetlefield-blast)
 
-## Itch page
-[View Here](https://nuffuru.itch.io/beetlefield-blast)
+[![Watch the video](https://img.youtube.com/vi/1o8efRZxP0g/default.jpg)](https://www.youtube.com/watch?v=1o8efRZxP0g)
 
-![Screenshot](../assets/images/beetlefieldblast/screenshot0.png)
-
-![Screenshot](../assets/images/beetlefieldblast/screenshot1.png)
-
-![Screenshot](../assets/images/beetlefieldblast/screenshot2.png)
-
-![Screenshot](../assets/images/beetlefieldblast/screenshot3.png)
-
-![Screenshot](../assets/images/beetlefieldblast/screenshot4.png)
-
-</br>
-
-## Description
+## My contributions
 We made this project over the course of a semester with 3 programmers and 3 artists.
 
+As one of the programmers I played a major role into bringing our vision to life.
 
-## Gameplay Loop
-- A bomb-fruit drops in the center of the arena.
+Some of my work:
 
-- Beetles battle to bash, kick, and weapon-whack the bomb onto the enemy’s side.
-
-- After 20 seconds, the bomb explodes, dealing a point of “damage” to the team it’s closest to.
-
-- If it explodes on your side, you lose a point. If it’s on theirs, you gain a point.
-
-## Features
-- Many different ways to team up
-- Two different character types
+- Weapon spawning, pick up and management
+- Statistics tracking and podium system
+- Balancing and reworking characters and abilities
+- Implementation of some of the models and animations
+- Score tracking UI elements implementation
+- Animations for bomb, weapons, game intro, loading screen
+- Implementation of walking particle effects
+- Visual feedback effects for bomb timer and other small things
+- Trailer
+- Small bug fixes and changes
 
 ## Tools and languages used
 Unity, C#
