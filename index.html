@@ -4,50 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Top Navigation -->
-    <nav id="top-nav">
-        <div class="container nav-container">
-            <a href="#about">About</a>
-            <a href="#projects-section">Projects</a>
-            <a href="#contact-section">Contact</a>
-        </div>
-    </nav>
-
-    <!-- About Section -->
-    <header id="about">
-        <div class="container about-container">
-            <div class="gradient-bg"></div>
+    <header>
+        <div class="container">
             <h1>Your Name</h1>
             <p>Minimalist Dark Portfolio</p>
         </div>
     </header>
 
     <main class="container">
-        <!-- Projects -->
-        <section id="projects-section">
+        <section id="intro">
+            <p>Hello! I'm a <strong>[Your Role]</strong> who loves creating clean, functional, and elegant solutions.</p>
+        </section>
+
+        <section id="projects">
             <h2>Projects</h2>
             <div class="project-grid">
                 <div class="project-card" data-project="projects/project1.md">
-                    <img src="assets/images/project1.jpg" alt="Project 1">
-                    <h3>Project 1</h3>
+                    <img src="assets/images/project1.png" alt="Project One">
+                    <h3>Project One</h3>
                 </div>
                 <div class="project-card" data-project="projects/project2.md">
-                    <img src="assets/images/project2.jpg" alt="Project 2">
-                    <h3>Project 2</h3>
+                    <img src="assets/images/project2.png" alt="Project Two">
+                    <h3>Project Two</h3>
                 </div>
                 <div class="project-card" data-project="projects/project3.md">
-                    <img src="assets/images/project3.jpg" alt="Project 3">
-                    <h3>Project 3</h3>
+                    <img src="assets/images/project3.png" alt="Project Three">
+                    <h3>Project Three</h3>
                 </div>
             </div>
         </section>
 
-        <!-- Contact -->
-        <section id="contact-section">
+        <section class="contact">
             <h2>Contact</h2>
             <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
         </section>
@@ -57,7 +47,7 @@
         <p>&copy; 2025 Your Name</p>
     </footer>
 
-    <!-- Modal for Projects -->
+    <!-- Modal Overlay -->
     <div id="modal" class="hidden">
         <div class="modal-content">
             <button id="close-modal">✕</button>
@@ -65,6 +55,7 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
