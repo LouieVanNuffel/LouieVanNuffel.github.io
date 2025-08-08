@@ -38,4 +38,40 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.addEventListener('click', (e) => {
         if (e.target === modal) modal.classList.add('hidden');
     });
+
+    // Navigation buttons and active highlight logic
+const navButtons = document.querySelectorAll('#top-nav .nav-btn');
+const sections = ['about', 'projects', 'contact'].map(id => document.getElementById(id));
+
+// Scroll to section on nav button click
+navButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-target');
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});
+
+// Highlight nav button based on scroll position
+window.addEventListener('scroll', () => {
+    let currentSectionId = sections[0].id;
+
+    sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= window.innerHeight / 3 && rect.bottom >= window.innerHeight / 3) {
+            currentSectionId = section.id;
+        }
+    });
+
+    navButtons.forEach(btn => {
+        if (btn.getAttribute('data-target') === currentSectionId) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+});
+
 });

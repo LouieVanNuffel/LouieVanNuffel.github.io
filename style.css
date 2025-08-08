@@ -74,6 +74,36 @@ footer {
     font-size: 1.1rem;
 }
 
+/* top nav bar */
+#top-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1rem 0 2rem 0;
+}
+
+#top-nav .nav-btn {
+    background-color: #2a2a2a;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    color: #eee;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+#top-nav .nav-btn:hover {
+    background-color: #4da3ff;
+    color: #fff;
+}
+
+#top-nav .nav-btn.active {
+    background-color: #4da3ff;
+    color: #fff;
+}
+
+
 /* Modal overlay */
 #modal {
     position: fixed;
