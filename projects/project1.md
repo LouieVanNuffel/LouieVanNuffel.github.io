@@ -3,15 +3,15 @@
 ![Screenshot of Project One](../assets/images/project1.png)
 
 ## Overview
-Project One is a minimalist web application that allows users to [brief description].
+This is a clean and simple web application that does something amazing.
 
 ## Features
-- Feature one
-- Feature two
-- Feature three
+- Minimalist design
+- Responsive layout
+- Easy to navigate
 
 ## Tech Stack
 HTML, CSS, JavaScript
 
 ## Live Demo
-[View the Project](https://example.com)
+[Click here to view](https://example.com)

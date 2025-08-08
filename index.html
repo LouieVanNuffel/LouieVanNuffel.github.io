@@ -9,33 +9,41 @@
 <body>
     <header>
         <div class="container">
-            <h1>Louie Van Nuffel</h1>
-            <p>Portfolio</p>
+            <h1>Your Name</h1>
+            <p>Minimalist Portfolio</p>
         </div>
     </header>
 
     <main class="container">
-        <section class="intro">
-            <p>Hello! I'm a <strong>Student Game Developer</strong> at Howest DAE.</p>
+        <section id="intro">
+            <p>Hello! I'm a <strong>[Your Role]</strong> who loves creating clean, functional, and elegant solutions.</p>
         </section>
 
-        <section class="projects">
+        <section id="projects">
             <h2>Projects</h2>
             <ul>
-                <li><a href="projects/project1.md">Project One</a></li>
-                <li><a href="projects/project2.md">Project Two</a></li>
-                <li><a href="projects/project3.md">Project Three</a></li>
+                <li><a href="#" data-project="projects/project1.md">Project One</a></li>
+                <li><a href="#" data-project="projects/project2.md">Project Two</a></li>
+                <li><a href="#" data-project="projects/project3.md">Project Three</a></li>
             </ul>
+        </section>
+
+        <section id="project-view" class="hidden">
+            <button id="back-btn">← Back to Projects</button>
+            <div id="project-content"></div>
         </section>
 
         <section class="contact">
             <h2>Contact</h2>
-            <p>Email: <a href="mailto:you@example.com">louievannuffel2005@gmail.com</a></p>
+            <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2025 Your Name</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

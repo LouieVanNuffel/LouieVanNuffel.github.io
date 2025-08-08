@@ -46,3 +46,25 @@ footer {
     font-size: 0.8rem;
     color: #777;
 }
+
+.hidden {
+    display: none;
+}
+
+#back-btn {
+    background: none;
+    border: none;
+    color: #007acc;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+#back-btn:hover {
+    text-decoration: underline;
+}
+
+#project-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
