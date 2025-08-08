@@ -1,3 +1,8 @@
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
 /* Hidden utility */
 .hidden {
     display: none !important;
@@ -12,37 +17,80 @@ body {
     line-height: 1.6;
 }
 
-.container {
-    width: 90%;
-    max-width: 1000px;
-    margin: auto;
+/* Navigation bar */
+#top-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #1e1e1e;
+    padding: 0.8rem 0;
+    z-index: 200;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
-
-header {
-    background-color: #1e1e1e;
-    color: white;
-    padding: 2rem 0;
-    text-align: center;
+.nav-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
 }
-
-h1, h2, h3 {
-    font-weight: 300;
-    color: #fff;
-}
-
-a {
-    color: #4da3ff;
+#top-nav a {
+    color: #eee;
     text-decoration: none;
+    font-weight: 500;
 }
-a:hover {
-    text-decoration: underline;
+#top-nav a:hover {
+    color: #4da3ff;
+}
+#top-nav a.active {
+    color: #ff4d88;
+    font-weight: 700;
+    border-bottom: 2px solid #ff4d88;
+    padding-bottom: 2px;
 }
 
-footer {
+
+/* About section */
+header {
+    padding-top: 8rem; /* for fixed nav offset */
+    padding-bottom: 6rem;
     text-align: center;
-    padding: 1rem;
-    font-size: 0.8rem;
-    color: #888;
+    position: relative;
+    overflow: hidden;
+}
+header h1 {
+    font-size: 3rem;
+    z-index: 1;
+    position: relative;
+}
+header p {
+    z-index: 1;
+    position: relative;
+    color: #ccc;
+}
+
+/* Animated gradient background */
+.gradient-bg {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120%;
+    height: 100%;
+    background: linear-gradient(270deg, #4da3ff, #ff4d88, #4dffb8);
+    background-size: 600% 600%;
+    animation: gradientShift 10s ease infinite;
+    filter: blur(100px);
+    opacity: 0.4;
+    z-index: 0;
+}
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Sections spacing */
+section {
+    padding: 6rem 0;
 }
 
 /* Project grid */
@@ -50,9 +98,7 @@ footer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
-    margin-top: 1rem;
 }
-
 .project-card {
     background-color: #1e1e1e;
     border-radius: 8px;
@@ -86,7 +132,7 @@ footer {
     align-items: center;
     justify-content: center;
     z-index: 100;
-    backdrop-filter: blur(6px); /* Background blur */
+    backdrop-filter: blur(6px);
 }
 .modal-content {
     background: #1e1e1e;
@@ -117,7 +163,7 @@ footer {
     border-radius: 6px;
 }
 
-/* Fade + zoom animation for modal box */
+/* Fade + zoom animation */
 .fade-zoom {
     animation: fadeZoom 0.35s ease-out forwards;
     opacity: 0;
@@ -132,4 +178,9 @@ footer {
         opacity: 1;
         transform: scale(1);
     }
+}
+
+/* Prevent nav hiding target content */
+:target {
+    scroll-margin-top: 80px;
 }

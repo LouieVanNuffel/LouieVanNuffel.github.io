@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Reset animation
                 modalBox.classList.remove('fade-zoom');
-                void modalBox.offsetWidth; // reflow trick
+                void modalBox.offsetWidth;
                 modalBox.classList.add('fade-zoom');
             } catch (err) {
                 modalContent.innerHTML = `<p>Error loading project.</p>`;
@@ -38,4 +38,36 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.addEventListener('click', (e) => {
         if (e.target === modal) modal.classList.add('hidden');
     });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+            modal.classList.add('hidden');
+        }
+    });
+
+    const navLinks = document.querySelectorAll('#top-nav a');
+const sections = [...navLinks].map(link => {
+    const targetId = link.getAttribute('href').substring(1);
+    return document.getElementById(targetId);
+});
+
+function onScroll() {
+    const scrollPos = window.scrollY + 90; // 90 = nav height + offset
+    let currentSectionId = sections[0].id;
+
+    for (const section of sections) {
+        if (section.offsetTop <= scrollPos) {
+            currentSectionId = section.id;
+        }
+    }
+
+    navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + currentSectionId);
+    });
+}
+
+window.addEventListener('scroll', onScroll);
+onScroll(); // initialize on load
+
 });
