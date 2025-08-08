@@ -1,53 +1,115 @@
+/* Dark mode base */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
-    background-color: #fafafa;
-    color: #333;
+    background-color: #121212;
+    color: #eee;
     line-height: 1.6;
 }
 
 .container {
     width: 90%;
-    max-width: 800px;
+    max-width: 1000px;
     margin: auto;
 }
 
 header {
-    background-color: #111;
+    background-color: #1e1e1e;
     color: white;
     padding: 2rem 0;
     text-align: center;
 }
 
-h1, h2 {
+h1, h2, h3 {
     font-weight: 300;
+    color: #fff;
 }
 
 a {
-    color: #007acc;
+    color: #4da3ff;
     text-decoration: none;
 }
 a:hover {
     text-decoration: underline;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-li {
-    margin: 0.5rem 0;
-}
-
 footer {
     text-align: center;
     padding: 1rem;
     font-size: 0.8rem;
-    color: #777;
+    color: #888;
 }
 
-/* Smooth fade animation */
+/* Project grid */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.project-card {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    text-align: center;
+}
+.project-card:hover {
+    transform: translateY(-5px);
+}
+.project-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+.project-card h3 {
+    padding: 0.8rem;
+    font-size: 1.1rem;
+}
+
+/* Modal overlay */
+#modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(18, 18, 18, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+.hidden {
+    display: none;
+}
+.modal-content {
+    background: #1e1e1e;
+    padding: 2rem;
+    max-width: 800px;
+    max-height: 80%;
+    overflow-y: auto;
+    border-radius: 10px;
+    position: relative;
+}
+#close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: #fff;
+    cursor: pointer;
+}
+#project-content img {
+    max-width: 100%;
+    border-radius: 6px;
+}
+
+/* Transition and pop up effects */
 .fade-in {
     animation: fadeIn 0.4s ease-in-out forwards;
     opacity: 0;
@@ -58,25 +120,20 @@ footer {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Hidden state */
-.hidden {
-    display: none;
+.fade-zoom {
+    animation: fadeZoom 0.35s ease-out forwards;
+    opacity: 0;
+    transform: scale(0.95);
 }
 
-#back-btn {
-    background: none;
-    border: none;
-    color: #007acc;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-bottom: 1rem;
-}
-#back-btn:hover {
-    text-decoration: underline;
+@keyframes fadeZoom {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
-#project-content img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-}

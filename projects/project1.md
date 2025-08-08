@@ -1,17 +1,17 @@
 # Project One
 
-![Screenshot of Project One](../assets/images/project1.png)
+![Screenshot](../assets/images/project1.png)
 
 ## Overview
-This is a clean and simple web application that does something amazing.
+This is my first minimalist dark-mode project.
 
 ## Features
-- Minimalist design
-- Responsive layout
-- Easy to navigate
+- Sleek grid layout
+- Modal display for details
+- Dark mode aesthetics
 
 ## Tech Stack
 HTML, CSS, JavaScript
 
 ## Live Demo
-[Click here to view](https://example.com)
+[View Here](https://example.com)

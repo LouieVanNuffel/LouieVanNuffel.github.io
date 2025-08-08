@@ -3,45 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Louie Van Nuffel Portfolio</title>
+    <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Louie Van Nuffel</h1>
-            <p>Portfolio</p>
+            <h1>Your Name</h1>
+            <p>Minimalist Dark Portfolio</p>
         </div>
     </header>
 
     <main class="container">
         <section id="intro">
-            <p>I'm a <strong>Student Game Developer</strong> at Howest DAE.</p>
+            <p>Hello! I'm a <strong>[Your Role]</strong> who loves creating clean, functional, and elegant solutions.</p>
         </section>
 
         <section id="projects">
             <h2>Projects</h2>
-            <ul>
-                <li><a href="#" data-project="projects/project1.md">Project One</a></li>
-                <li><a href="#" data-project="projects/project2.md">Project Two</a></li>
-                <li><a href="#" data-project="projects/project3.md">Project Three</a></li>
-            </ul>
-        </section>
-
-        <section id="project-view" class="hidden">
-            <button id="back-btn">← Back to Projects</button>
-            <div id="project-content"></div>
+            <div class="project-grid">
+                <div class="project-card" data-project="projects/project1.md">
+                    <img src="assets/images/project1.png" alt="Project One">
+                    <h3>Project One</h3>
+                </div>
+                <div class="project-card" data-project="projects/project2.md">
+                    <img src="assets/images/project2.png" alt="Project Two">
+                    <h3>Project Two</h3>
+                </div>
+                <div class="project-card" data-project="projects/project3.md">
+                    <img src="assets/images/project3.png" alt="Project Three">
+                    <h3>Project Three</h3>
+                </div>
+            </div>
         </section>
 
         <section class="contact">
             <h2>Contact</h2>
-            <p>Email: <a href="mailto:you@example.com">louievannuffel2005@gmail.com</a></p>
+            <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Louie Van Nuffel</p>
+        <p>&copy; 2025 Your Name</p>
     </footer>
+
+    <!-- Modal Overlay -->
+    <div id="modal" class="hidden">
+        <div class="modal-content fade-in">
+            <button id="close-modal">✕</button>
+            <div id="project-content"></div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="script.js"></script>
