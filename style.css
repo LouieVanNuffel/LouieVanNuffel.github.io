@@ -136,8 +136,8 @@ footer {
 
 /* Itch.io button style */
 .itch-button {
-    width: 48px;
-    height: 48px;
+    width: 96px;
+    height: 96px;
     display: inline-block;
     vertical-align: middle;
     cursor: pointer;
