@@ -133,3 +133,18 @@ footer {
         transform: scale(1);
     }
 }
+
+/* Itch.io button style */
+.itch-button {
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.itch-button:hover {
+    transform: scale(1.1);
+}
+

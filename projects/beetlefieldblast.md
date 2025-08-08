@@ -4,9 +4,9 @@
 
 In this frantic arena brawler, you play as fantastical, weapon-wielding beetles locked in a high-stakes battle over a ticking explosive fruit bomb. Your goal? Smack that bomb toward the enemy’s side before it blows—and pray it doesn’t blow up on yours.
 
-[![itch.io](../assets/images/icons/itch.svg)](https://nuffuru.itch.io/beetlefield-blast)
+[<img src="../assets/images/icons/itch.svg" alt="itch.io" class="itch-button">](https://nuffuru.itch.io/beetlefield-blast)
 
-[![Watch the video](https://img.youtube.com/vi/1o8efRZxP0g/default.jpg)](https://www.youtube.com/watch?v=1o8efRZxP0g)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1o8efRZxP0g" title="Beetlefield Blast Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## My contributions
 We made this project over the course of a semester with 3 programmers and 3 artists.
