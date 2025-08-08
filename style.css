@@ -138,8 +138,8 @@ footer {
 
 /* Add vertical spacing between major sections */
 .section-spaced {
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin-top: 8rem;
+    margin-bottom: 8rem;
 }
 
 /* Make nav sticky to top */
