@@ -80,14 +80,21 @@ footer {
     cursor: pointer;
     transition: transform 0.2s ease;
     text-align: center;
+    padding-bottom: 1rem;
 }
 .project-card:hover { transform: translateY(-5px); }
 .project-card img {
     width: 100%;
     height: 160px;
     object-fit: cover;
+    border-bottom: 1px solid #4da3ff44;
 }
-.project-card h3 { padding: 0.8rem; font-size: 1.1rem; }
+.project-card h3 { 
+    padding: 0.8rem; 
+    font-size: 1.1rem; 
+    color: #4da3ff;
+    margin: 0;
+}
 
 /* Itch button style */
 .itch-button {
@@ -124,6 +131,7 @@ footer {
     transform: translateY(100%);
     opacity: 0;
     transition: transform 0.35s ease, opacity 0.35s ease;
+    overflow-wrap: break-word;
 }
 .modal-content.fade-slide {
     transform: translateY(0);
@@ -217,4 +225,65 @@ section h2::after {
     background: #4da3ff;
     border-radius: 3px;
     box-shadow: 0 0 8px #4da3ff88;
+}
+
+/* Markdown content styling inside modal */
+#project-content {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
+    color: #ddd;
+}
+
+#project-content blockquote {
+    margin: 1.2rem 0;
+    padding-left: 1rem;
+    border-left: 4px solid #4da3ff;
+    font-style: italic;
+    color: #9ec1ff;
+}
+
+#project-content h1,
+#project-content h2,
+#project-content h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.6rem;
+    color: #4da3ff;
+    font-weight: 600;
+}
+
+#project-content hr {
+    border: none;
+    border-top: 1px solid #4da3ff;
+    margin: 2rem 0;
+}
+
+#project-content ul {
+    padding-left: 1.3rem;
+    list-style-type: disc;
+    margin-bottom: 1.5rem;
+}
+
+#project-content a {
+    color: #4da3ff;
+    text-decoration: none;
+}
+
+#project-content a:hover {
+    text-decoration: underline;
+}
+
+#project-content strong {
+    color: #a9d1ff;
+}
+
+/* Responsive tweak for smaller screens */
+@media (max-width: 700px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    iframe {
+        width: 100% !important;
+        height: auto !important;
+    }
 }
