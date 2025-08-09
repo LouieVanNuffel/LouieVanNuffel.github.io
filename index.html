@@ -49,15 +49,15 @@
                     </div>
                     <div class="project-card" data-project="projects/project4.md">
                         <img src="assets/images/project4.png" alt="Project Four" />
-                        <h3>Project Two</h3>
+                        <h3>Project Four</h3>
                     </div>
                     <div class="project-card" data-project="projects/project5.md">
                         <img src="assets/images/project5.png" alt="Project Five" />
-                        <h3>Project Two</h3>
+                        <h3>Project Five</h3>
                     </div>
                     <div class="project-card" data-project="projects/project6.md">
                         <img src="assets/images/project6.png" alt="Project Six" />
-                        <h3>Project Two</h3>
+                        <h3>Project Six</h3>
                     </div>
                 </div>
             </div>
@@ -77,9 +77,9 @@
     </footer>
 
     <!-- Modal Overlay -->
-    <div id="modal" class="hidden">
-        <div class="modal-content">
-            <button id="close-modal">✕</button>
+    <div id="modal" class="hidden" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-content" tabindex="0">
+            <button id="close-modal" aria-label="Close project modal">✕</button>
             <div id="project-content"></div>
         </div>
     </div>
