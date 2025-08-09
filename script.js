@@ -18,6 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 modal.classList.remove('hidden');
 
+                // Disable background scroll
+                document.body.style.overflow = 'hidden';
+
                 modalBox.classList.remove('fade-zoom');
                 void modalBox.offsetWidth;
                 modalBox.classList.add('fade-zoom');
@@ -29,8 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Close modal
-    closeModal.addEventListener('click', () => modal.classList.add('hidden'));
-    modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.add('hidden'); });
+    function closeProjectModal() {
+        modal.classList.add('hidden');
+        document.body.style.overflow = ''; // Re-enable scroll
+    }
+    closeModal.addEventListener('click', closeProjectModal);
+    modal.addEventListener('click', (e) => { 
+        if (e.target === modal) closeProjectModal();
+    });
 
     // Navigation buttons
     const navButtons = document.querySelectorAll('#top-nav .nav-btn');

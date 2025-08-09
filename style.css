@@ -37,11 +37,11 @@ footer {
     padding: 2rem;
 }
 
-/* Animated gradient background */
+/* Animated gradient background - faster + more blue */
 .gradient-bg {
-    background: linear-gradient(120deg, #1e1e1e, #2a2a2a, #1e1e1e);
+    background: linear-gradient(120deg, #1e1e1e, #1f2b40, #2a2a2a, #1f2b40);
     background-size: 300% 300%;
-    animation: gradientMove 12s ease infinite;
+    animation: gradientMove 6s ease infinite;
 }
 @keyframes gradientMove {
     0% { background-position: 0% 50%; }
@@ -49,10 +49,17 @@ footer {
     100% { background-position: 0% 50%; }
 }
 
+/* Name glow animation */
 .about-name {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: 1rem;
+    animation: textGlow 2.5s ease-in-out infinite alternate;
 }
+@keyframes textGlow {
+    from { text-shadow: 0 0 5px #4da3ff, 0 0 10px #4da3ff; }
+    to { text-shadow: 0 0 20px #4da3ff, 0 0 40px #4da3ff; }
+}
+
 .about-intro {
     font-size: 1.2rem;
     margin-bottom: 1rem;
@@ -93,19 +100,27 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 100;
+    z-index: 300; /* higher than navbar */
     backdrop-filter: blur(6px);
 }
 .modal-content {
     background: #1e1e1e;
     padding: 2rem;
-    max-width: 800px;
-    max-height: 80%;
+    max-width: 900px; /* wider modal */
+    max-height: 85%;
     overflow-y: auto;
-    border-radius: 10px;
+    border-radius: 12px;
     position: relative;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    transform: scale(0.8);
+    opacity: 0;
+    transition: all 0.3s ease;
 }
+.modal-content.fade-zoom {
+    transform: scale(1);
+    opacity: 1;
+}
+
 #close-modal {
     position: absolute;
     top: 10px;
