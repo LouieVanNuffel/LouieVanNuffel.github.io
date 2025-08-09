@@ -37,6 +37,17 @@ footer {
     padding: 3rem 2rem;
 }
 
+/* Contact section styled like About */
+#contact.fullscreen-section {
+    min-height: 70vh; /* match about */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 3rem 2rem;
+}
+
 /* Animated gradient background */
 .gradient-bg {
     background: linear-gradient(120deg, #1e1e1e, #1f2b40, #2a2a2a, #1f2b40);
@@ -71,6 +82,8 @@ footer {
     grid-template-columns: repeat(3, 1fr); /* max 3 per row */
     gap: 2rem; /* increased gap for breathing room */
     margin-top: 1rem;
+    padding-left: 2rem;  /* add horizontal padding so cards don't hug edges */
+    padding-right: 2rem;
 }
 
 .project-card {
@@ -80,7 +93,7 @@ footer {
     cursor: pointer;
     transition: transform 0.2s ease;
     text-align: center;
-    padding: 1rem; /* added padding all around for breathing room */
+    padding: 1rem 2rem; /* more padding left and right */
 }
 .project-card:hover { transform: translateY(-5px); }
 .project-card img {
@@ -281,6 +294,8 @@ section h2::after {
     .project-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
+        padding-left: 1rem; /* smaller padding on mobile */
+        padding-right: 1rem;
     }
     iframe {
         width: 100% !important;
