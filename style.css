@@ -26,18 +26,18 @@ footer {
     color: #888;
 }
 
-/* Fullscreen section */
-.fullscreen-section {
-    min-height: 80vh; /* reduced from 100vh for smaller About section */
+/* Fullscreen section smaller */
+#about.fullscreen-section {
+    min-height: 70vh; /* less tall */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     flex-direction: column;
-    padding: 2rem;
+    padding: 3rem 2rem;
 }
 
-/* Animated gradient background - faster + more blue */
+/* Animated gradient background */
 .gradient-bg {
     background: linear-gradient(120deg, #1e1e1e, #1f2b40, #2a2a2a, #1f2b40);
     background-size: 300% 300%;
@@ -49,15 +49,15 @@ footer {
     100% { background-position: 0% 50%; }
 }
 
-/* Name glow animation */
+/* Name glow animation (more subtle) */
 .about-name {
     font-size: 3.5rem;
     margin-bottom: 1rem;
-    animation: textGlow 3s ease-in-out infinite alternate; /* slower and more subtle */
+    animation: textGlow 3s ease-in-out infinite alternate;
 }
 @keyframes textGlow {
-    from { text-shadow: 0 0 4px #4da3ff88, 0 0 8px #4da3ff88; }
-    to { text-shadow: 0 0 12px #4da3ffaa, 0 0 24px #4da3ffaa; }
+    from { text-shadow: 0 0 4px #4da3ff, 0 0 8px #4da3ff; }
+    to { text-shadow: 0 0 10px #4da3ff, 0 0 20px #4da3ff; }
 }
 
 .about-intro {
@@ -65,10 +65,10 @@ footer {
     margin-bottom: 1rem;
 }
 
-/* Project grid - max 3 cards per row */
+/* Project grid */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* exactly 3 columns max */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* more flexible & responsive */
     gap: 1.5rem;
     margin-top: 1rem;
 }
@@ -120,12 +120,12 @@ footer {
     flex-grow: 1;
 }
 
-/* Itch.io button style */
+
+/* Itch button style */
 .itch-button {
     width: 96px;
     height: 96px;
-    vertical-align: middle;
-    margin-top: 1rem;
+    display: inline-block;
 }
 
 /* Modal overlay */
@@ -137,26 +137,27 @@ footer {
     height: 100%;
     background: rgba(18, 18, 18, 0.85);
     display: flex;
-    align-items: flex-start; /* align top */
+    align-items: flex-start;
     justify-content: center;
     z-index: 300; /* higher than navbar */
     backdrop-filter: blur(6px);
-    padding-top: 40px; /* small spacing from top */
-    overflow-y: auto; /* allow scrolling modal content */
+    padding-top: 2rem; /* spacing from top */
+    overflow-y: auto;
 }
 .modal-content {
     background: #1e1e1e;
     padding: 2rem;
-    max-width: 900px; /* wider modal */
-    max-height: 85vh; /* limit height */
-    border-radius: 12px 12px 0 0; /* no bottom border radius */
+    width: 95%;
+    max-width: 1000px;
+    max-height: none; /* allow height to grow */
+    border-radius: 12px 12px 0 0; /* round only top corners */
     position: relative;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
     transform: translateY(100%);
     opacity: 0;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.35s ease, opacity 0.35s ease;
 }
-.modal-content.fade-zoom {
+.modal-content.fade-slide {
     transform: translateY(0);
     opacity: 1;
 }
@@ -185,29 +186,23 @@ footer {
 }
 .nav-container {
     display: flex;
-    justify-content: space-between; /* name left, buttons right */
+    justify-content: space-between;
     align-items: center;
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 1rem;
-    gap: 1.5rem;
+    gap: 1rem;
 }
-
-/* Your name on the left in nav */
-.nav-name {
-    color: #4da3ff;
+#nav-left.nav-name {
     font-weight: 600;
     font-size: 1.3rem;
+    color: #4da3ff;
     user-select: none;
-    white-space: nowrap;
 }
-
-/* Nav buttons container on the right */
-.nav-buttons {
+#nav-right.nav-buttons {
     display: flex;
     gap: 1.5rem;
 }
-
 #top-nav .nav-btn {
     background-color: #2a2a2a;
     border: none;
@@ -232,7 +227,26 @@ footer {
     transform: translateY(0);
 }
 
-/* Contact section extra padding */
-#contact {
-    padding-bottom: 6rem;
+/* Section titles styling */
+section h2 {
+    font-weight: 500;
+    font-size: 2rem;
+    color: #4da3ff;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.4rem;
+    text-shadow: 0 0 6px #4da3ff66;
+}
+
+section h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background: #4da3ff;
+    border-radius: 3px;
+    box-shadow: 0 0 8px #4da3ff88;
 }
