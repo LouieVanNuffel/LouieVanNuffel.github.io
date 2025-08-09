@@ -21,8 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Disable background scroll
                 document.body.style.overflow = 'hidden';
 
+                // Animate slide up
                 modalBox.classList.remove('fade-zoom');
-                void modalBox.offsetWidth;
+                void modalBox.offsetWidth; // trigger reflow
                 modalBox.classList.add('fade-zoom');
             } catch (err) {
                 modalContent.innerHTML = `<p>Error loading project.</p>`;
@@ -31,56 +32,56 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Close modal
+    // Close modal with slide down animation
     function closeProjectModal() {
-        modal.classList.add('hidden');
-        document.body.style.overflow = ''; // Re-enable scroll
+        modalBox.classList.remove('fade-zoom');
+
+        modalBox.addEventListener('transitionend', () => {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+            modalContent.innerHTML = '';
+        }, { once: true });
     }
+
     closeModal.addEventListener('click', closeProjectModal);
-    modal.addEventListener('click', (e) => { 
+
+    modal.addEventListener('click', (e) => {
         if (e.target === modal) closeProjectModal();
     });
 
-    // Navigation buttons
-    const navButtons = document.querySelectorAll('#top-nav .nav-btn');
-    const sections = ['about', 'projects', 'contact'].map(id => document.getElementById(id));
+    // Navigation button switching content
+    const navButtons = document.querySelectorAll('.nav-btn');
+    const sections = ['about', 'projects', 'contact'];
 
     navButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            const targetId = btn.getAttribute('data-target');
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            }
+            const target = btn.getAttribute('data-target');
+
+            sections.forEach(sec => {
+                const sectionEl = document.getElementById(sec);
+                if (sec === target) {
+                    sectionEl.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+
+            navButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
         });
     });
 
-    // Active nav highlight on scroll
-    window.addEventListener('scroll', () => {
-        let currentSectionId = sections[0].id;
+    // Reveal animation on scroll
+    function reveal() {
+        const reveals = document.querySelectorAll('.reveal');
+        for (let elem of reveals) {
+            const windowHeight = window.innerHeight;
+            const revealTop = elem.getBoundingClientRect().top;
+            const revealPoint = 150;
 
-        sections.forEach(section => {
-            const rect = section.getBoundingClientRect();
-            if (rect.top <= window.innerHeight / 3 && rect.bottom >= window.innerHeight / 3) {
-                currentSectionId = section.id;
+            if (revealTop < windowHeight - revealPoint) {
+                elem.classList.add('visible');
             }
-        });
-
-        navButtons.forEach(btn => {
-            btn.classList.toggle('active', btn.getAttribute('data-target') === currentSectionId);
-        });
-    });
-
-    // Reveal sections on scroll
-    const revealElements = document.querySelectorAll('.reveal');
-    const revealOnScroll = () => {
-        revealElements.forEach(el => {
-            const rect = el.getBoundingClientRect();
-            if (rect.top <= window.innerHeight - 100) {
-                el.classList.add('visible');
-            }
-        });
-    };
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
+        }
+    }
+    window.addEventListener('scroll', reveal);
+    reveal();
 });
