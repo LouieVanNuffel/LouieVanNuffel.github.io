@@ -21,10 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Disable background scroll
                 document.body.style.overflow = 'hidden';
 
-                // Animate modal slide in
-                modalBox.classList.remove('fade-slide-in');
-                void modalBox.offsetWidth;  // trigger reflow
-                modalBox.classList.add('fade-slide-in');
+                modalBox.classList.remove('fade-slide-up');
+                void modalBox.offsetWidth; // trigger reflow for animation restart
+                modalBox.classList.add('fade-slide-up');
             } catch (err) {
                 modalContent.innerHTML = `<p>Error loading project.</p>`;
                 modal.classList.remove('hidden');
@@ -32,17 +31,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Close modal function with slide out animation
+    // Close modal function
     function closeProjectModal() {
-        // Animate slide out
-        modalBox.classList.remove('fade-slide-in');
-        // Wait for animation to finish before hiding modal
-        modalBox.addEventListener('transitionend', () => {
+        // Animate modal sliding down before hiding
+        modalBox.classList.remove('fade-slide-up');
+        modalBox.classList.add('fade-slide-down');
+
+        modalBox.addEventListener('animationend', () => {
             modal.classList.add('hidden');
-            document.body.style.overflow = ''; // Re-enable scroll
-            modalContent.innerHTML = ''; // clear content
+            document.body.style.overflow = ''; // re-enable scroll
+            modalBox.classList.remove('fade-slide-down');
         }, { once: true });
     }
+
+    // Close modal on close button click
     closeModal.addEventListener('click', closeProjectModal);
 
     // Close modal on clicking outside modal content
@@ -52,10 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Section buttons scroll & highlight
+    // Navigation buttons and sections
     const navButtons = document.querySelectorAll('#top-nav .nav-btn');
     const sections = [...navButtons].map(btn => document.getElementById(btn.dataset.target));
 
+    // Update active nav button based on scroll position
     function updateActiveNav() {
         const scrollPos = window.scrollY + window.innerHeight / 3;
 
@@ -79,4 +82,20 @@ document.addEventListener('DOMContentLoaded', () => {
             targetSection.scrollIntoView({ behavior: 'smooth' });
         });
     });
+
+    // Reveal elements on scroll
+    const revealElements = document.querySelectorAll('.reveal');
+
+    function revealOnScroll() {
+        const windowHeight = window.innerHeight;
+        revealElements.forEach(el => {
+            const elementTop = el.getBoundingClientRect().top;
+            if (elementTop < windowHeight * 0.85) {
+                el.classList.add('visible');
+            }
+        });
+    }
+
+    revealOnScroll();
+    window.addEventListener('scroll', revealOnScroll);
 });
