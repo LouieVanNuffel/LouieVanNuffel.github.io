@@ -18,9 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 modal.classList.remove('hidden');
 
-                // Reset animation
                 modalBox.classList.remove('fade-zoom');
-                void modalBox.offsetWidth; // reflow trick
+                void modalBox.offsetWidth;
                 modalBox.classList.add('fade-zoom');
             } catch (err) {
                 modalContent.innerHTML = `<p>Error loading project.</p>`;
@@ -29,21 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Close modal with ✕
-    closeModal.addEventListener('click', () => {
-        modal.classList.add('hidden');
-    });
+    // Close modal
+    closeModal.addEventListener('click', () => modal.classList.add('hidden'));
+    modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.add('hidden'); });
 
-    // Close modal by clicking outside content
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) modal.classList.add('hidden');
-    });
-
-    // Navigation buttons and active highlight logic
+    // Navigation buttons
     const navButtons = document.querySelectorAll('#top-nav .nav-btn');
     const sections = ['about', 'projects', 'contact'].map(id => document.getElementById(id));
 
-    // Scroll to section on nav button click
     navButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             const targetId = btn.getAttribute('data-target');
@@ -54,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Highlight nav button based on scroll position
+    // Active nav highlight on scroll
     window.addEventListener('scroll', () => {
         let currentSectionId = sections[0].id;
 
@@ -66,11 +58,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         navButtons.forEach(btn => {
-            if (btn.getAttribute('data-target') === currentSectionId) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
+            btn.classList.toggle('active', btn.getAttribute('data-target') === currentSectionId);
         });
     });
+
+    // Reveal sections on scroll
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+        revealElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= window.innerHeight - 100) {
+                el.classList.add('visible');
+            }
+        });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
 });

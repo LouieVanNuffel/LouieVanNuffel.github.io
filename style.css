@@ -1,7 +1,5 @@
 /* Hidden utility */
-.hidden {
-    display: none !important;
-}
+.hidden { display: none !important; }
 
 /* Dark mode base */
 body {
@@ -10,19 +8,7 @@ body {
     background-color: #121212;
     color: #eee;
     line-height: 1.6;
-}
-
-.container {
-    width: 90%;
-    max-width: 1000px;
-    margin: auto;
-}
-
-header {
-    background-color: #1e1e1e;
-    color: white;
-    padding: 2rem 0;
-    text-align: center;
+    scroll-behavior: smooth;
 }
 
 h1, h2, h3 {
@@ -30,19 +16,46 @@ h1, h2, h3 {
     color: #fff;
 }
 
-a {
-    color: #4da3ff;
-    text-decoration: none;
-}
-a:hover {
-    text-decoration: underline;
-}
+a { color: #4da3ff; text-decoration: none; }
+a:hover { text-decoration: underline; }
 
 footer {
     text-align: center;
     padding: 1rem;
     font-size: 0.8rem;
     color: #888;
+}
+
+/* Fullscreen section */
+.fullscreen-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+/* Animated gradient background */
+.gradient-bg {
+    background: linear-gradient(120deg, #1e1e1e, #2a2a2a, #1e1e1e);
+    background-size: 300% 300%;
+    animation: gradientMove 12s ease infinite;
+}
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.about-name {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.about-intro {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
 }
 
 /* Project grid */
@@ -61,18 +74,13 @@ footer {
     transition: transform 0.2s ease;
     text-align: center;
 }
-.project-card:hover {
-    transform: translateY(-5px);
-}
+.project-card:hover { transform: translateY(-5px); }
 .project-card img {
     width: 100%;
     height: 160px;
     object-fit: cover;
 }
-.project-card h3 {
-    padding: 0.8rem;
-    font-size: 1.1rem;
-}
+.project-card h3 { padding: 0.8rem; font-size: 1.1rem; }
 
 /* Modal overlay */
 #modal {
@@ -86,7 +94,7 @@ footer {
     align-items: center;
     justify-content: center;
     z-index: 100;
-    backdrop-filter: blur(6px); /* Background blur */
+    backdrop-filter: blur(6px);
 }
 .modal-content {
     background: #1e1e1e;
@@ -107,57 +115,24 @@ footer {
     font-size: 1.4rem;
     color: #fff;
     cursor: pointer;
-    z-index: 10;
 }
-#close-modal:hover {
-    color: #ff5555;
-}
-#project-content img {
-    max-width: 100%;
-    border-radius: 6px;
-}
+#close-modal:hover { color: #ff5555; }
 
-/* Fade + zoom animation for modal box */
-.fade-zoom {
-    animation: fadeZoom 0.35s ease-out forwards;
-    opacity: 0;
-    transform: scale(0.95);
-}
-@keyframes fadeZoom {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* Add vertical spacing between major sections */
-.section-spaced {
-    margin-top: 8rem;
-    margin-bottom: 8rem;
-}
-
-/* Make nav sticky to top */
+/* Nav bar - full width transparent */
 #top-nav {
     position: sticky;
     top: 0;
-    background-color: #1e1e1e; /* match header background */
-    z-index: 100;
-    padding: 1rem 0;
+    width: 100%;
+    background-color: rgba(30, 30, 30, 0.8);
+    z-index: 200;
+    padding: 0.5rem 0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
-
-/* Nav container flex styling */
-#top-nav.container {
+.nav-container {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
 }
-
-/* Nav buttons */
 #top-nav .nav-btn {
     background-color: #2a2a2a;
     border: none;
@@ -168,22 +143,16 @@ footer {
     border-radius: 6px;
     transition: background-color 0.3s ease;
 }
+#top-nav .nav-btn:hover { background-color: #4da3ff; color: #fff; }
+#top-nav .nav-btn.active { background-color: #4da3ff; color: #fff; }
 
-#top-nav .nav-btn:hover {
-    background-color: #4da3ff;
-    color: #fff;
+/* Reveal animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
-
-#top-nav .nav-btn.active {
-    background-color: #4da3ff;
-    color: #fff;
-}
-
-/* Itch.io button style */
-.itch-button {
-    width: 96px;
-    height: 96px;
-    display: inline-block;
-    vertical-align: middle;
-    cursor: pointer;
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
 }

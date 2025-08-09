@@ -7,55 +7,52 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Louie Van Nuffel</h1>
-        </div>
-    </header>
-
     <!-- Sticky Top navigation bar -->
-    <nav id="top-nav" class="container">
-        <button class="nav-btn active" data-target="about">About</button>
-        <button class="nav-btn" data-target="projects">Projects</button>
-        <button class="nav-btn" data-target="contact">Contact</button>
+    <nav id="top-nav">
+        <div class="nav-container">
+            <button class="nav-btn active" data-target="about">About</button>
+            <button class="nav-btn" data-target="projects">Projects</button>
+            <button class="nav-btn" data-target="contact">Contact</button>
+        </div>
     </nav>
 
-    <main class="container">
-        <!-- About section: intro + about text -->
-        <section id="about" class="section-spaced">
-            <div id="intro" style="margin-bottom:1rem;">
-                <p>I'm a <strong>Student Game Developer</strong> at Howest DAE. This page highlights the projects I've worked on.</p>
-            </div>
-            <div>
+    <main>
+        <!-- About section: fullscreen intro -->
+        <section id="about" class="fullscreen-section gradient-bg">
+            <div class="about-content">
+                <h1 class="about-name">Louie Van Nuffel</h1>
+                <p class="about-intro">I'm a <strong>Student Game Developer</strong> at Howest DAE. This page highlights the projects I've worked on.</p>
                 <p>Languages: C++, C#, Python, ...</p>
                 <p>Tools: Unity, Unreal Engine, Godot, Blender, Visual Studio</p>
             </div>
         </section>
 
         <!-- Projects section -->
-        <section id="projects" class="section-spaced">
-            <h2>Projects</h2>
-            <div class="project-grid">
-                <div class="project-card" data-project="projects/beetlefieldblast.md">
-                    <img src="assets/images/beetlefieldblast/logo.png" alt="Beetlefield Blast" />
-                    <h3>Beetlefield Blast</h3>
-                </div>
-                <div class="project-card" data-project="projects/project2.md">
-                    <img src="assets/images/project2.png" alt="Project Two" />
-                    <h3>Project Two</h3>
-                </div>
-                <div class="project-card" data-project="projects/project3.md">
-                    <img src="assets/images/project3.png" alt="Project Three" />
-                    <h3>Project Three</h3>
+        <section id="projects" class="section-spaced reveal">
+            <div class="container">
+                <h2>Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card" data-project="projects/beetlefieldblast.md">
+                        <img src="assets/images/beetlefieldblast/logo.png" alt="Beetlefield Blast" />
+                        <h3>Beetlefield Blast</h3>
+                    </div>
+                    <div class="project-card" data-project="projects/project2.md">
+                        <img src="assets/images/project2.png" alt="Project Two" />
+                        <h3>Project Two</h3>
+                    </div>
+                    <div class="project-card" data-project="projects/project3.md">
+                        <img src="assets/images/project3.png" alt="Project Three" />
+                        <h3>Project Three</h3>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact section -->
-        <section id="contact" class="contact section-spaced">
-            <div style="margin-bottom:16rem;">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:louievannuffel2005@gmail.com">louievannuffel2005@gmail.com</a></p>
+        <section id="contact" class="contact section-spaced reveal">
+            <div class="container">
+                <h2>Contact</h2>
+                <p>Email: <a href="mailto:louievannuffel2005@gmail.com">louievannuffel2005@gmail.com</a></p>
             </div>
         </section>
     </main>
