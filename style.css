@@ -69,7 +69,7 @@ footer {
 .project-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* max 3 per row */
-    gap: 1.5rem;
+    gap: 2rem; /* increased gap for breathing room */
     margin-top: 1rem;
 }
 
@@ -80,7 +80,7 @@ footer {
     cursor: pointer;
     transition: transform 0.2s ease;
     text-align: center;
-    padding-bottom: 1rem;
+    padding: 1rem; /* added padding all around for breathing room */
 }
 .project-card:hover { transform: translateY(-5px); }
 .project-card img {
