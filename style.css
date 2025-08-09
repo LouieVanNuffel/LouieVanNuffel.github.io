@@ -27,7 +27,7 @@ footer {
 }
 
 /* Fullscreen section smaller */
-#about.fullscreen-section {
+.fullscreen-section {
     min-height: 70vh; /* less tall */
     display: flex;
     align-items: center;
