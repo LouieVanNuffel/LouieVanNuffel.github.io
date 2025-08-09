@@ -21,10 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Disable background scroll
                 document.body.style.overflow = 'hidden';
 
-                // Animate slide up
-                modalBox.classList.remove('fade-zoom');
+                // Animate modal sliding up
+                modalBox.classList.remove('slide-up');
                 void modalBox.offsetWidth; // trigger reflow
-                modalBox.classList.add('fade-zoom');
+                modalBox.classList.add('slide-up');
             } catch (err) {
                 modalContent.innerHTML = `<p>Error loading project.</p>`;
                 modal.classList.remove('hidden');
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Close modal with slide down animation
     function closeProjectModal() {
-        modalBox.classList.remove('fade-zoom');
+        modalBox.classList.remove('slide-up');
 
         modalBox.addEventListener('transitionend', () => {
             modal.classList.add('hidden');
@@ -49,39 +49,58 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target === modal) closeProjectModal();
     });
 
-    // Navigation button switching content
+    // Navigation buttons & sections
     const navButtons = document.querySelectorAll('.nav-btn');
     const sections = ['about', 'projects', 'contact'];
 
     navButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            const target = btn.getAttribute('data-target');
-
-            sections.forEach(sec => {
-                const sectionEl = document.getElementById(sec);
-                if (sec === target) {
-                    sectionEl.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
+            const targetId = btn.getAttribute('data-target');
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
 
             navButtons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
         });
     });
 
-    // Reveal animation on scroll
-    function reveal() {
-        const reveals = document.querySelectorAll('.reveal');
-        for (let elem of reveals) {
-            const windowHeight = window.innerHeight;
-            const revealTop = elem.getBoundingClientRect().top;
-            const revealPoint = 150;
+    // Update nav buttons based on scroll position
+    const sectionElems = sections.map(id => document.getElementById(id));
 
-            if (revealTop < windowHeight - revealPoint) {
-                elem.classList.add('visible');
+    window.addEventListener('scroll', () => {
+        const scrollPos = window.scrollY + window.innerHeight / 2;
+
+        let currentSection = sections[0];
+
+        for (let i = 0; i < sectionElems.length; i++) {
+            if (sectionElems[i].offsetTop <= scrollPos) {
+                currentSection = sections[i];
             }
         }
+
+        navButtons.forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-target') === currentSection);
+        });
+    });
+
+    // Reveal on scroll for fade in effect
+    function revealOnScroll() {
+        const reveals = document.querySelectorAll('.reveal');
+        const windowHeight = window.innerHeight;
+        const revealPoint = 150;
+
+        reveals.forEach(reveal => {
+            const revealTop = reveal.getBoundingClientRect().top;
+            if (revealTop < windowHeight - revealPoint) {
+                reveal.classList.add('visible');
+            } else {
+                reveal.classList.remove('visible');
+            }
+        });
     }
-    window.addEventListener('scroll', reveal);
-    reveal();
+
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll(); // trigger on load
 });
