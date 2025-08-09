@@ -26,9 +26,9 @@ footer {
     color: #888;
 }
 
-/* Fullscreen section smaller */
+/* Fullscreen section */
 #about.fullscreen-section {
-    min-height: 70vh; /* less tall */
+    min-height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
