@@ -26,18 +26,18 @@ footer {
     color: #888;
 }
 
-/* Fullscreen section */
-.fullscreen-section {
-    min-height: 100vh;
+/* Fullscreen section smaller */
+#about.fullscreen-section {
+    min-height: 70vh; /* less tall */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     flex-direction: column;
-    padding: 2rem;
+    padding: 3rem 2rem;
 }
 
-/* Animated gradient background - faster + more blue */
+/* Animated gradient background */
 .gradient-bg {
     background: linear-gradient(120deg, #1e1e1e, #1f2b40, #2a2a2a, #1f2b40);
     background-size: 300% 300%;
@@ -49,15 +49,15 @@ footer {
     100% { background-position: 0% 50%; }
 }
 
-/* Name glow animation - more subtle */
+/* Name glow animation (more subtle) */
 .about-name {
     font-size: 3.5rem;
     margin-bottom: 1rem;
-    animation: textGlow 3.5s ease-in-out infinite alternate;
+    animation: textGlow 3s ease-in-out infinite alternate;
 }
 @keyframes textGlow {
     from { text-shadow: 0 0 4px #4da3ff, 0 0 8px #4da3ff; }
-    to { text-shadow: 0 0 12px #4da3ff, 0 0 24px #4da3ff; }
+    to { text-shadow: 0 0 10px #4da3ff, 0 0 20px #4da3ff; }
 }
 
 .about-intro {
@@ -65,15 +65,12 @@ footer {
     margin-bottom: 1rem;
 }
 
-/* Project grid: max 3 per row */
+/* Project grid */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* max 3 per row */
     gap: 1.5rem;
     margin-top: 1rem;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .project-card {
@@ -92,40 +89,43 @@ footer {
 }
 .project-card h3 { padding: 0.8rem; font-size: 1.1rem; }
 
+/* Itch button style */
+.itch-button {
+    width: 96px;
+    height: 96px;
+    display: inline-block;
+}
+
 /* Modal overlay */
 #modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background: rgba(18, 18, 18, 0.85);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    z-index: 300;
+    z-index: 300; /* higher than navbar */
     backdrop-filter: blur(6px);
-    overflow: hidden;
-    padding: 0 1rem;
+    padding-top: 2rem; /* spacing from top */
+    overflow-y: auto;
 }
-
 .modal-content {
     background: #1e1e1e;
     padding: 2rem;
-    max-width: 950px;
-    width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
-    border-radius: 12px 12px 0 0; /* rounded corners top & sides only */
+    width: 95%;
+    max-width: 1000px;
+    max-height: none; /* allow height to grow */
+    border-radius: 12px 12px 0 0; /* round only top corners */
     position: relative;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
     transform: translateY(100%);
     opacity: 0;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    /* Make bottom open-ended by rounding only top and sides */
+    transition: transform 0.35s ease, opacity 0.35s ease;
 }
-
-.modal-content.slide-up {
+.modal-content.fade-slide {
     transform: translateY(0);
     opacity: 1;
 }
@@ -139,7 +139,6 @@ footer {
     font-size: 1.4rem;
     color: #fff;
     cursor: pointer;
-    z-index: 10;
 }
 #close-modal:hover { color: #ff5555; }
 
@@ -150,22 +149,25 @@ footer {
     width: 100%;
     background-color: rgba(30, 30, 30, 0.8);
     z-index: 200;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1100px;
+    max-width: 1000px;
     margin: 0 auto;
+    padding: 0 1rem;
+    gap: 1rem;
 }
-.nav-left {
-    color: #4da3ff;
+#nav-left.nav-name {
     font-weight: 600;
     font-size: 1.3rem;
+    color: #4da3ff;
+    user-select: none;
 }
-.nav-right {
+#nav-right.nav-buttons {
     display: flex;
     gap: 1.5rem;
 }
@@ -193,23 +195,26 @@ footer {
     transform: translateY(0);
 }
 
-/* Itch button styling */
-.itch-button {
-    width: 96px;
-    height: 96px;
-    margin: 1rem 0;
-    display: inline-block;
+/* Section titles styling */
+section h2 {
+    font-weight: 500;
+    font-size: 2rem;
+    color: #4da3ff;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.4rem;
+    text-shadow: 0 0 6px #4da3ff66;
 }
 
-/* Scrollbar styling inside modal-content (optional) */
-.modal-content::-webkit-scrollbar {
-    width: 8px;
-}
-.modal-content::-webkit-scrollbar-track {
-    background: #2a2a2a;
-    border-radius: 8px;
-}
-.modal-content::-webkit-scrollbar-thumb {
+section h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
     background: #4da3ff;
-    border-radius: 8px;
+    border-radius: 3px;
+    box-shadow: 0 0 8px #4da3ff88;
 }

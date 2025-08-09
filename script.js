@@ -4,103 +4,87 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalContent = document.getElementById('project-content');
     const closeModal = document.getElementById('close-modal');
     const modalBox = document.querySelector('.modal-content');
-    const navButtons = document.querySelectorAll('#top-nav .nav-btn');
-    const sections = ['about', 'projects', 'contact'];
-    const sectionElems = sections.map(id => document.getElementById(id));
 
     // Open modal when clicking a project card
     projectCards.forEach(card => {
         card.addEventListener('click', async () => {
             const mdFile = card.getAttribute('data-project');
-
             try {
-                const response = await fetch(mdFile);
-                if (!response.ok) throw new Error('Project not found');
-                const markdown = await response.text();
-                modalContent.innerHTML = marked.parse(markdown);
+                const res = await fetch(mdFile);
+                if (!res.ok) throw new Error('Markdown file not found');
+                const mdText = await res.text();
+                modalContent.innerHTML = marked.parse(mdText);
+
+                // Add target=_blank to itch.io links automatically
+                modalContent.querySelectorAll('a[href*="itch.io"]').forEach(link => {
+                    link.setAttribute('target', '_blank');
+                    link.setAttribute('rel', 'noopener noreferrer');
+                });
+
+                // Add itch.io button style if itch links are images or buttons (optional)
+                modalContent.querySelectorAll('a[href*="itch.io"]').forEach(link => {
+                    link.classList.add('itch-button');
+                });
 
                 modal.classList.remove('hidden');
-                modal.setAttribute('aria-hidden', 'false');
-
-                // Disable background scroll
-                document.body.style.overflow = 'hidden';
-
-                // Animate slide up
-                modalBox.classList.remove('slide-up');
-                void modalBox.offsetWidth; // trigger reflow
-                modalBox.classList.add('slide-up');
-
-                modalBox.focus();
-            } catch (err) {
-                modalContent.innerHTML = `<p>Error loading project.</p>`;
-                modal.classList.remove('hidden');
-                modal.setAttribute('aria-hidden', 'false');
+                // Trigger animation
+                setTimeout(() => modalBox.classList.add('fade-slide'), 10);
+                document.body.style.overflow = 'hidden'; // prevent background scroll
+            } catch (error) {
+                modalContent.innerHTML = `<p style="color: #f55;">Failed to load project details.</p>`;
             }
         });
     });
 
-    // Close modal
-    function closeProjectModal() {
-        // Animate slide down first
-        modalBox.classList.remove('slide-up');
-        modalBox.addEventListener('transitionend', () => {
-            modal.classList.add('hidden');
-            modal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = ''; // Re-enable scroll
-            modalContent.innerHTML = '';
-        }, { once: true });
-    }
-    closeModal.addEventListener('click', closeProjectModal);
-
-    // Close modal on outside click
+    // Close modal on clicking close button or outside modal content
+    closeModal.addEventListener('click', closeModalFn);
     modal.addEventListener('click', e => {
-        if (e.target === modal) closeProjectModal();
+        if (e.target === modal) closeModalFn();
     });
 
-    // Close modal on ESC key
-    document.addEventListener('keydown', e => {
-        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-            closeProjectModal();
-        }
-    });
+    function closeModalFn() {
+        modalBox.classList.remove('fade-slide');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modalContent.innerHTML = '';
+            document.body.style.overflow = ''; // re-enable scroll
+        }, 350);
+    }
 
-    // Nav button click scroll to section
+    // Navbar buttons scroll to sections and update active state
+    const navButtons = document.querySelectorAll('#top-nav .nav-btn');
+    const sections = ['about', 'projects', 'contact'].map(id => document.getElementById(id));
+
     navButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             const targetId = btn.getAttribute('data-target');
-            document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
         });
     });
 
-    // Update active nav button on scroll
+    // Update nav active button on scroll
     window.addEventListener('scroll', () => {
         const scrollPos = window.scrollY + window.innerHeight / 3;
-
-        let currentSection = sections[0];
-        for (let id of sections) {
-            const elem = document.getElementById(id);
-            if (elem.offsetTop <= scrollPos) {
-                currentSection = id;
-            }
+        let current = 'about';
+        for (const section of sections) {
+            if (scrollPos >= section.offsetTop) current = section.id;
         }
-
         navButtons.forEach(btn => {
-            btn.classList.toggle('active', btn.getAttribute('data-target') === currentSection);
+            btn.classList.toggle('active', btn.getAttribute('data-target') === current);
         });
-    });
 
-    // Reveal animation on scroll
-    const revealElems = document.querySelectorAll('.reveal');
-    function revealOnScroll() {
-        const triggerBottom = window.innerHeight * 0.85;
-
-        revealElems.forEach(el => {
-            const boxTop = el.getBoundingClientRect().top;
-            if (boxTop < triggerBottom) {
+        // Reveal elements on scroll
+        document.querySelectorAll('.reveal').forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.8) {
                 el.classList.add('visible');
             }
         });
-    }
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
+    });
+
+    // Trigger scroll event once on load to set active nav and reveal
+    window.dispatchEvent(new Event('scroll'));
 });
