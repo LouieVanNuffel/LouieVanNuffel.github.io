@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://louievannuffel.github.io/sitemap.xml
