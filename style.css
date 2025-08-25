@@ -26,9 +26,10 @@ footer {
     color: #888;
 }
 
-/* Fullscreen section smaller */
+/* Fullscreen section*/
 .fullscreen-section {
-    min-height: 70vh; /* less tall */
+    position: relative;
+    min-height: 70vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,6 +37,7 @@ footer {
     flex-direction: column;
     padding: 3rem 2rem;
 }
+
 
 /* Animated gradient background */
 .gradient-bg {
@@ -49,7 +51,7 @@ footer {
     100% { background-position: 0% 50%; }
 }
 
-/* Video background */
+/* Video background container */
 .video-bg {
     position: absolute;
     top: 0;
@@ -75,12 +77,12 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(4px); /* lighter global blur */
-    background: rgba(0, 0, 0, 0.25); /* faint dark layer */
+    backdrop-filter: blur(4px);        /* subtle global blur */
+    background: rgba(0, 0, 0, 0.25);   /* faint dark layer */
     z-index: -1;
 }
 
-/* Stronger fade & blur at the bottom */
+/* Fade & blur at the bottom */
 .video-bg::after {
     content: "";
     position: absolute;
@@ -94,7 +96,7 @@ footer {
         rgba(18, 18, 18, 0.8) 70%,
         #121212 100%
     );
-    backdrop-filter: blur(12px); /* stronger blur effect */
+    backdrop-filter: blur(12px);  /* stronger blur effect at bottom */
     z-index: -1;
 }
 
