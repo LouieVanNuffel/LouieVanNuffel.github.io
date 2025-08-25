@@ -350,6 +350,17 @@ section h2::after {
     color: #a9d1ff;
 }
 
+#project-content img {
+    min-width: 80%;
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+
 /* Responsive tweak for smaller screens */
 @media (max-width: 700px) {
     .project-grid {
