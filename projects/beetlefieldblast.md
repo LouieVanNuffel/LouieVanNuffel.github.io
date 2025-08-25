@@ -6,7 +6,9 @@ In this frantic arena brawler, you play as fantastical, weapon-wielding beetles 
 
 [<img src="../assets/images/icons/itch.svg" alt="itch.io" class="itch-button">](https://nuffuru.itch.io/beetlefield-blast)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/1o8efRZxP0g" title="Beetlefield Blast Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="video-wrapper">
+  <iframe src="https://www.youtube.com/embed/1o8efRZxP0g" title="Beetlefield Blast Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 ---
 

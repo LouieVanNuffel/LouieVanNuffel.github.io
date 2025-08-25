@@ -10,7 +10,9 @@ I ended making a simple endless type of game where you have to manage a set of t
 
 You have to prevent the tracks from freezing over by throwing salt on the spots that are highlighted. If you are too late, the tracks will freeze over and it will take much more salt to unfreeze them. If a train is held up by a piece of frozen track the delay timer builds up. When the delay gets too high you get fired! ...and of course if you're hit by a train you die.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PMsv1aBDkew" title="Build String presentation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="video-wrapper">
+  <iframe src="https://www.youtube.com/embed/PMsv1aBDkew" title="Salt Train Presentation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 ---
 

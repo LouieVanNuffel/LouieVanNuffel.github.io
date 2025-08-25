@@ -8,7 +8,9 @@ This was made over the course of half a semester whilst going over the unity eng
 I received the keywords 'build' and 'string' as inspiration for my unity game demo.
 This evolved into a focus on some satisfying abilities. I made a dragging ability, a binding ability and an ability to control electrical objects. All got some simple color coding, and I made some small levels to demonstrate these abilities.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/V8rbiL7Gl58" title="Build String presentation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="video-wrapper">
+  <iframe src="https://www.youtube.com/embed/V8rbiL7Gl58" title="Build String Presentation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 ---
 
