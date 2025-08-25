@@ -18,7 +18,7 @@ I later ported it for android and launched it on the google play store out of in
 
 [<img src="../assets/images/icons/itch.svg" alt="itch.io" class="itch-button">](https://nuffuru.itch.io/cat-and-mouse-dairy-quest)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/htHgebch1rs" title="Build String presentation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/htHgebch1rs" title="Build String presentation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ---
 
