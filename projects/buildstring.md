@@ -1,5 +1,7 @@
 # Build String Unity Project
 
+---
+
 For my game engine fundamentals course, I made this simple game to demonstrate my understanding of the key features of unity.
 This was made over the course of half a semester whilst going over the unity engine. The focus was put on the engine and game mechanics.
 
@@ -20,3 +22,5 @@ During this project I got some good unity experience and gained some game design
 ## Tools And Languages Used
 
 **Unity**, **C#**
+
+---

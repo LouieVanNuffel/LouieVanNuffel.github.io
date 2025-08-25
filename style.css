@@ -351,21 +351,25 @@ section h2::after {
 }
 
 #project-content img {
-    max-width: 60%;
+    min-width: 80%;
+    max-width: 80%;
     height: auto;
     display: block;
-    margin: 1rem 0 1rem 0;
-    float: left;
+    margin: 1rem auto;
     border-radius: 6px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 
-/* Clear floats after paragraphs to prevent text wrapping issues */
-#project-content::after {
-    content: "";
-    display: table;
-    clear: both;
+#project-content iframe {
+   min-width: 80%;
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
+
 
 /* Responsive tweak for smaller screens */
 @media (max-width: 700px) {

@@ -1,5 +1,7 @@
 # Road To Game Dev
 
+---
+
 Before starting my game develoment studies I experimented by joining a few game jams and seeing what I could make.
 These projects served as my introduction to game development and are the main reason I'm currently pursuing a career in the industry.
 
@@ -48,3 +50,5 @@ This time around I made the models for the game myself with my newly acquired lo
 [<img src="../assets/images/icons/itch.svg" alt="itch.io" class="itch-button">](https://nuffuru.itch.io/gigabot)
 
 ![Screenshot of Gigabot](../assets/images/roadtogamedev/gigabot.png)
+
+---

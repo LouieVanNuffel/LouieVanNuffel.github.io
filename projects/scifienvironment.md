@@ -1,5 +1,7 @@
 # Sci-fi Environment
 
+---
+
 For an elective course in the first semester of my second year we made environments using Unreal Engine 5.
 We focused on a modular workflow to create a convincing high quality environment within a theme. I made this sci-fi environment for my exam.
 
@@ -19,3 +21,5 @@ It has given me a better understanding of my artist colleagues, and therefore ha
 ## Tools Used
 
 **Unreal Engine 5**, **Blender**
+
+---

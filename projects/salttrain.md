@@ -1,5 +1,7 @@
 # Salt Train Unreal Engine Project
 
+---
+
 For my game engine fundamentals course, I made this simple game to demonstrate my understanding of the key features of unreal engine.
 This was made over the course of half a semester whilst going over the unreal engine. The focus was put on the engine and game mechanics.
 
@@ -21,3 +23,5 @@ It was very interesting to work with such a powerful engine. Also using the visu
 ## Tools Used
 
 **Unreal Engine**
+
+---
