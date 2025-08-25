@@ -49,6 +49,11 @@ footer {
     100% { background-position: 0% 50%; }
 }
 
+/* Gif banner */
+.banner-gif {
+    background: url("assets/images/banner.gif") center center / cover no-repeat;
+}
+
 /* Name glow animation (more subtle) */
 .about-name {
     font-size: 3.5rem;
