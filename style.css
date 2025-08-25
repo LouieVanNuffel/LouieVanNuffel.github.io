@@ -1,11 +1,7 @@
-/* -------------------------
-   Hidden Utility
-------------------------- */
+/* Hidden utility */
 .hidden { display: none !important; }
 
-/* -------------------------
-   Base Styles
-------------------------- */
+/* Dark mode base */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
@@ -30,11 +26,9 @@ footer {
     color: #888;
 }
 
-/* -------------------------
-   Fullscreen Section
-------------------------- */
+/* Fullscreen section*/
 .fullscreen-section {
-    position: relative;  /* needed for video pseudo-elements */
+    position: relative;
     min-height: 70vh;
     display: flex;
     align-items: center;
@@ -44,17 +38,28 @@ footer {
     padding: 3rem 2rem;
 }
 
-/* -------------------------
-   Video Background
-------------------------- */
+
+/* Animated gradient background */
+.gradient-bg {
+    background: linear-gradient(120deg, #1e1e1e, #1f2b40, #2a2a2a, #1f2b40);
+    background-size: 300% 300%;
+    animation: gradientMove 6s ease infinite;
+}
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Video background container */
 .video-bg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;           /* fill parent section */
+    height: 100%;
     overflow: hidden;
-    z-index: -2;            /* behind content */
+    z-index: -2;
 }
 
 .video-bg video {
@@ -64,47 +69,47 @@ footer {
     filter: brightness(0.8);
 }
 
-/* Pseudo-elements for blur and bottom fade */
-.video-bg::before,
-.video-bg::after {
+/* Subtle blur */
+.video-bg::before {
     content: "";
-    display: block;
     position: absolute;
+    top: 0;
     left: 0;
     width: 100%;
+    height: 100%;
+    backdrop-filter: blur(4px);        /* subtle global blur */
+    background: rgba(0, 0, 0, 0.25);   /* faint dark layer */
     z-index: -1;
 }
 
-.video-bg::before {
-    top: 0;
-    height: 100%;
-    backdrop-filter: blur(4px);        /* subtle global blur */
-    background: rgba(0, 0, 0, 0.25);   /* faint dark overlay */
-}
-
+/* Fade & blur at the bottom */
 .video-bg::after {
+    content: "";
+    position: absolute;
     bottom: 0;
-    height: 220px;  /* fade area */
+    left: 0;
+    width: 100%;
+    height: 220px; /* fade area height */
     background: linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0) 0%,
         rgba(18, 18, 18, 0.8) 70%,
         #121212 100%
     );
-    backdrop-filter: blur(12px);       /* stronger bottom blur */
+    backdrop-filter: blur(12px);  /* stronger blur effect at bottom */
+    z-index: -1;
 }
 
-/* -------------------------
-   About Content Overlay
-------------------------- */
+/* Ensure text stays readable */
 .about-content {
-    position: relative; /* sit above video */
+    position: relative;
     z-index: 1;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.4); /* subtle overlay */
     padding: 1rem 2rem;
     border-radius: 10px;
 }
 
+/* Name glow animation (more subtle) */
 .about-name {
     font-size: 3.5rem;
     margin-bottom: 1rem;
@@ -112,7 +117,7 @@ footer {
 }
 @keyframes textGlow {
     from { text-shadow: 0 0 4px #4da3ff, 0 0 8px #4da3ff; }
-    to   { text-shadow: 0 0 10px #4da3ff, 0 0 20px #4da3ff; }
+    to { text-shadow: 0 0 10px #4da3ff, 0 0 20px #4da3ff; }
 }
 
 .about-intro {
@@ -120,17 +125,16 @@ footer {
     margin-bottom: 1rem;
 }
 
-/* -------------------------
-   Project Grid
-------------------------- */
+/* Project grid */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* max 3 per row */
     gap: 1.5rem;
     margin-top: 1rem;
-    padding: 0 2rem;
+    padding: 0 2rem; /* added horizontal padding for breathing room */
 }
 
+/* Project card */
 .project-card {
     background-color: #1e1e1e;
     border-radius: 8px;
@@ -138,14 +142,13 @@ footer {
     cursor: pointer;
     transition: transform 0.2s ease;
     text-align: center;
-    padding-bottom: 0.5rem;
-    position: relative;
+    padding-bottom: 0.5rem; /* reduced padding for bigger image */
+    position: relative; /* needed for icon overlay positioning */
 }
 .project-card:hover { transform: translateY(-5px); }
-
 .project-card img {
     width: 100%;
-    height: 220px;
+    height: 220px; /* increased image height */
     object-fit: cover;
     border-bottom: 1px solid #4da3ff44;
 }
@@ -156,21 +159,21 @@ footer {
     margin: 0;
 }
 
-/* -------------------------
-   Icon Overlay on Project Cards
-------------------------- */
+/* Icon overlay container top-left */
 .icon-overlay {
     position: absolute;
     top: 8px;
-    left: 8px;
+    left: 8px; /* top-left corner */
     display: flex;
     gap: 6px;
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: 10;
 }
-.project-card:hover .icon-overlay { opacity: 1; }
-
+.project-card:hover .icon-overlay {
+    opacity: 1;
+}
+/* Individual icon box */
 .icon-box {
     background-color: rgba(30, 30, 30, 0.85);
     padding: 4px 6px;
@@ -185,31 +188,39 @@ footer {
 .icon-box img {
     width: 18px;
     height: 18px;
+    display: block;
 }
 
-/* -------------------------
-   Modal
-------------------------- */
+/* Itch button style */
+.itch-button {
+    width: 96px;
+    height: 96px;
+    display: inline-block;
+}
+
+/* Modal overlay */
 #modal {
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(18, 18, 18, 0.85);
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    z-index: 300;
+    z-index: 300; /* higher than navbar */
     backdrop-filter: blur(6px);
-    padding-top: 2rem;
+    padding-top: 2rem; /* spacing from top */
     overflow-y: auto;
 }
-
 .modal-content {
     background: #1e1e1e;
     padding: 2rem;
     width: 95%;
     max-width: 1000px;
-    border-radius: 12px 12px 0 0;
+    max-height: none; /* allow height to grow */
+    border-radius: 12px 12px 0 0; /* round only top corners */
     position: relative;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
     transform: translateY(100%);
@@ -224,16 +235,17 @@ footer {
 
 #close-modal {
     position: absolute;
-    top: 10px; right: 15px;
-    background: none; border: none;
-    font-size: 1.4rem; color: #fff;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: #fff;
     cursor: pointer;
 }
 #close-modal:hover { color: #ff5555; }
 
-/* -------------------------
-   Navbar
-------------------------- */
+/* Nav bar - full width transparent */
 #top-nav {
     position: sticky;
     top: 0;
@@ -243,7 +255,6 @@ footer {
     padding: 0.5rem 0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
-
 .nav-container {
     display: flex;
     justify-content: space-between;
@@ -253,19 +264,16 @@ footer {
     padding: 0 1rem;
     gap: 1rem;
 }
-
 #nav-left.nav-name {
     font-weight: 600;
     font-size: 1.3rem;
     color: #4da3ff;
     user-select: none;
 }
-
 #nav-right.nav-buttons {
     display: flex;
     gap: 1.5rem;
 }
-
 #top-nav .nav-btn {
     background-color: #2a2a2a;
     border: none;
@@ -279,9 +287,7 @@ footer {
 #top-nav .nav-btn:hover { background-color: #4da3ff; color: #fff; }
 #top-nav .nav-btn.active { background-color: #4da3ff; color: #fff; }
 
-/* -------------------------
-   Reveal Animation
-------------------------- */
+/* Reveal animation */
 .reveal {
     opacity: 0;
     transform: translateY(40px);
@@ -292,11 +298,88 @@ footer {
     transform: translateY(0);
 }
 
-/* Responsive */
+/* Section titles styling */
+section h2 {
+    font-weight: 500;
+    font-size: 2rem;
+    color: #4da3ff;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.4rem;
+    text-shadow: 0 0 6px #4da3ff66;
+}
+
+section h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background: #4da3ff;
+    border-radius: 3px;
+    box-shadow: 0 0 8px #4da3ff88;
+}
+
+/* Markdown content styling inside modal */
+#project-content {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
+    color: #ddd;
+}
+
+#project-content blockquote {
+    margin: 1.2rem 0;
+    padding-left: 1rem;
+    border-left: 4px solid #4da3ff;
+    font-style: italic;
+    color: #9ec1ff;
+}
+
+#project-content h1,
+#project-content h2,
+#project-content h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.6rem;
+    color: #4da3ff;
+    font-weight: 600;
+}
+
+#project-content hr {
+    border: none;
+    border-top: 1px solid #4da3ff;
+    margin: 2rem 0;
+}
+
+#project-content ul {
+    padding-left: 1.3rem;
+    list-style-type: disc;
+    margin-bottom: 1.5rem;
+}
+
+#project-content a {
+    color: #4da3ff;
+    text-decoration: none;
+}
+
+#project-content a:hover {
+    text-decoration: underline;
+}
+
+#project-content strong {
+    color: #a9d1ff;
+}
+
+/* Responsive tweak for smaller screens */
 @media (max-width: 700px) {
     .project-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
-        padding: 0 1rem;
+        padding: 0 1rem; /* reduce side padding on smaller */
+    }
+    iframe {
+        width: 100% !important;
+        height: auto !important;
     }
 }
