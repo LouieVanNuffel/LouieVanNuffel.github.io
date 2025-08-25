@@ -12,7 +12,7 @@ We focused on a modular workflow to create a convincing high quality environment
 ## My Takeaways
 
 I'm very happy I was able to make this and that I chose to follow this course.
-It has given me a better insight and understanding in what artists do, and therefore makes it easier to communicate and collaborate.
+It has given me a better understanding of my artist colleagues, and therefore has made it easier for me to communicate and collaborate with them.
 
 ---
 
