@@ -7,7 +7,7 @@ We had to first apply many engine design patterns and create our **own game engi
 
 The full project is available on github, where I go over the engine patterns that were used. It goes over patterns from the game loop and game objects to the service locator.
 
-[<img src="../assets/images/icons/github.png" alt="github" class="itch-button">](https://github.com/LouieVanNuffel/Programming-4-Minigin.git)
+[<img src="../assets/images/icons/github.png" alt="github" class="link-button">](https://github.com/LouieVanNuffel/Programming-4-Minigin.git)
 
 ---
 

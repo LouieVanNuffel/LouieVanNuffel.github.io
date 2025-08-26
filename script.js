@@ -15,15 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const mdText = await res.text();
                 modalContent.innerHTML = marked.parse(mdText);
 
-                // Add target=_blank to itch.io links automatically
-                modalContent.querySelectorAll('a[href*="itch.io"]').forEach(link => {
+                // Add target=_blank to external links automatically
+                modalContent.querySelectorAll('a[href*="itch.io"], a[href*="github.com"]').forEach(link => {
                     link.setAttribute('target', '_blank');
                     link.setAttribute('rel', 'noopener noreferrer');
                 });
 
-                // Add itch.io button style if itch links are images or buttons (optional)
-                modalContent.querySelectorAll('a[href*="itch.io"]').forEach(link => {
-                    link.classList.add('itch-button');
+                // Add button style for itch/github links
+                modalContent.querySelectorAll('a[href*="itch.io"], a[href*="github.com"]').forEach(link => {
+                    link.classList.add('link-button');
                 });
 
                 modal.classList.remove('hidden');

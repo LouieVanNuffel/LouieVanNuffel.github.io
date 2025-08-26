@@ -16,7 +16,7 @@ In this game we follow a cat & mouse duo overcoming an evil lactose intolerant k
 It is a silly wacky platformer with pretty basic gameplay, but I had a great time making it and sparked love in me for game development.
 I later ported it for android and launched it on the google play store out of interest. It is no longer up, but I learned a lot from this again as well.
 
-[<img src="../assets/images/icons/itch.svg" alt="itch.io" class="itch-button">](https://nuffuru.itch.io/cat-and-mouse-dairy-quest)
+[<img src="../assets/images/icons/itch.svg" alt="itch.io" class="link-button">](https://nuffuru.itch.io/cat-and-mouse-dairy-quest)
 
 <div class="video-wrapper">
   <iframe src="https://www.youtube.com/embed/htHgebch1rs" title="Cat & Mouse Dairy Quest Full Gameplay" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -33,7 +33,7 @@ We only had **2 DAYS** to make a game this time. And together with my very talen
 
 You can control objects in the level with on screen controls and you can track the robot with security cameras. You could use a crusher, a turret and platforms to succeed in your task. There are only a few levels and limited gameplay, but for 2 days I really liked our results. It was an amazing (and stressful) experience.
 
-[<img src="../assets/images/icons/itch.svg" alt="itch.io" class="itch-button">](https://nuffuru.itch.io/stopbot)
+[<img src="../assets/images/icons/itch.svg" alt="itch.io" class="link-button">](https://nuffuru.itch.io/stopbot)
 
 ![Screenshot of Stopbot](../assets/images/roadtogamedev/stopbot.png)
 
@@ -50,7 +50,7 @@ I made a basic arena brawler where you have to defeat 4 waves of robots. Each wa
 
 This time around I made the models for the game myself with my newly acquired low-poly blender skills from my 3D1 course. This also meant I spent less time on the game itself this time. This combined with being new to the engine itself caused it to not be my best work in my opinion. But it was still a fun experience, and I learned a lot.
 
-[<img src="../assets/images/icons/itch.svg" alt="itch.io" class="itch-button">](https://nuffuru.itch.io/gigabot)
+[<img src="../assets/images/icons/itch.svg" alt="itch.io" class="link-button">](https://nuffuru.itch.io/gigabot)
 
 ![Screenshot of Gigabot](../assets/images/roadtogamedev/gigabot.png)
 
