@@ -182,7 +182,7 @@ footer {
   transform: scale(1.1);
 }
 
-.link-button.itch img {
+.link-button.itch {
   width: 96px;
   height: 96px;
 }
