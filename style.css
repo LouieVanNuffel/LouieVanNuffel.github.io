@@ -182,6 +182,11 @@ footer {
   transform: scale(1.1);
 }
 
+.link-button.itch img {
+  width: 96px;
+  height: 96px;
+}
+
 /* Modal overlay */
 #modal {
     position: fixed;
@@ -366,8 +371,7 @@ section h2::after {
 }
 
 #project-content iframe {
-    width: 60%;
-    height: auto;
+    max-width: 100%;
     display: block;
     margin: 1rem auto;
     border-radius: 6px;
@@ -376,11 +380,13 @@ section h2::after {
 
 #project-content .video-wrapper {
     position: relative;
-    width: 60%;
-    padding-bottom: 56.25%;  /* 16:9 aspect ratio (9/16*100) */
+    width: 80%;
+    max-width: 800px;
+    padding-bottom: 56.25%;  /* 16:9 */
     margin: 1rem auto;
     border-radius: 6px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    overflow: hidden;
 }
 
 #project-content .video-wrapper iframe {
@@ -390,9 +396,7 @@ section h2::after {
     width: 100%;
     height: 100%;
     border: 0;
-    border-radius: 6px;
 }
-
 
 /* Responsive tweak for smaller screens */
 @media (max-width: 700px) {
