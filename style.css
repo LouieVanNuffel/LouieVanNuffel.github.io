@@ -172,19 +172,14 @@ footer {
 
 /* General link button style */
 .link-button {
-  width: 48px;
-  height: 48px;
+  width: 72px;
+  height: 72px;
   display: inline-block;
   transition: transform 0.2s ease;
 }
 
 .link-button:hover {
   transform: scale(1.1);
-}
-
-.link-button.itch {
-  width: 96px;
-  height: 96px;
 }
 
 /* Modal overlay */

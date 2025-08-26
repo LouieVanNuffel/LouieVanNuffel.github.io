@@ -2,12 +2,20 @@
 
 ---
 
-For my programming 4 course, we had to recreate a popular 80's arcade game using a **sdl2 C++ framework** in visual studio. I got assigned Pengo.
-We had to first apply many engine design patterns and create our **own game engine** using a 'composition over inheritance' mindset.
+For my Programming 4 course, I recreated the classic 80's arcade game **Pengo** using a **SDL2 based C++ engine**. We had to build a small game engine using **composition over inheritance** and applying several common engine patterns.  
 
-The full project is available on github, where I go over the engine patterns that were used. It goes over patterns from the game loop and game objects to the service locator.
+Key patterns and systems implemented:
 
-The levels in the project are loaded in from binary files.
+- **Game Loop:** start, update, late update, cleanup  
+- **GameObject + Components:** entities composed of reusable components  
+- **Subject-Observer:** events for character actions and UI updates  
+- **Command-Action Bindings:** input-driven actions for players and AI  
+- **State/Animator:** animation states driven by events  
+- **Service Locator & Sound System:** threaded sound queue via service locator  
+- **Singletons:** collision system, input manager, time tracking, game state  
+- **Additional Functionality:** `OnDestroy()` for cleanup, `OnCollisionEnter()` for collision handling  
+
+The levels are loaded from binary files.
 
 [<img src="../assets/images/icons/github.png" alt="github" class="link-button">](https://github.com/LouieVanNuffel/Programming-4-Minigin.git)
 
@@ -19,11 +27,11 @@ The levels in the project are loaded in from binary files.
 
 ## My Takeaways
 
-It was very insightful to create my own engine using patterns utulized by many mainstream engines such as unity. I believe this project honed my C++ skills and gave me a much deeper understanding of game engines and game design.
+It was very insightful to create my own engine using patterns utilized by many mainstream engines such as unity. I believe this project honed my C++ skills and gave me a much deeper understanding of game engines and game design.
 
 ---
 
-## Tools and languages Used
+## Tools and Languages Used
 
 **C++**, **SDL2**, **Visual Studio**, **XInput**
 
