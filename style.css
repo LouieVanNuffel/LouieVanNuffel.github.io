@@ -172,8 +172,8 @@ footer {
 
 /* General link button style */
 .link-button {
-  width: 96px;
-  height: 96px;
+  width: 192px;
+  height: 192px;
   display: inline-block;
   transition: transform 0.2s ease;
 }
